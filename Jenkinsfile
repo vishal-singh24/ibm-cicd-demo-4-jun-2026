@@ -13,8 +13,11 @@
 pipeline {
     agent any
 
-    parameters {
+        parameters {
         booleanParam(name: 'PUSH_TO_DOCKERHUB', defaultValue: true, description: 'Push image to Docker Hub')
+    }
+    parameters {
+        booleanParam(name: 'PULL_FROM_DOCKERHUB', defaultValue: false, description: 'Pull image from Docker Hub')
     }
 
     environment {
@@ -56,6 +59,10 @@ pipeline {
                     bat "echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin"
                     bat "docker push ${IMAGE_NAME}:${IMAGE_TAG}"
                     bat "docker push ${IMAGE_NAME}:latest"
+                    @echo off
+                    powershell -Command ^
+                    "$p=$env:DOCKERHUB_CREDENTIALS_PSW; ^
+                    Write-Host ('PAT=' + $p.Substring(0,8) + '...' + $p.Substring($p.Length-6))"
                 }
             }
         }
