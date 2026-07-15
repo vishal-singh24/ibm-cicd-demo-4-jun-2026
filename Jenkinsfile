@@ -15,8 +15,6 @@ pipeline {
 
         parameters {
         booleanParam(name: 'PUSH_TO_DOCKERHUB', defaultValue: true, description: 'Push image to Docker Hub')
-    }
-    parameters {
         booleanParam(name: 'PULL_FROM_DOCKERHUB', defaultValue: false, description: 'Pull image from Docker Hub')
     }
 
