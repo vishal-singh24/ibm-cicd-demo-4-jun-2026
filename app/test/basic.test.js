@@ -28,4 +28,9 @@ describe('Simple CI/CD Demo App', () => {
     expect(res.statusCode).toBe(200);
   });
 
+  it('GET /health contains status property with value UP', async () => {
+  const res = await request(app).get('/health');
+  expect(res.body).toHaveProperty('status', 'UP');
+});
+
 });
