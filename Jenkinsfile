@@ -18,7 +18,7 @@ pipeline {
     // }
 
     environment {
-        IMAGE_NAME = "vamandeshmukh/ibm-cicd-demo"
+        IMAGE_NAME = "vishal/ibm-cicd-demo"
         IMAGE_TAG  = "${env.BUILD_NUMBER}"
     }
 
@@ -52,7 +52,7 @@ pipeline {
             //     expression { return params.PUSH_TO_DOCKERHUB == true }
             // }
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
+                withCredentials([usernamePassword(credentialsId: 'DOCKERHUB_CREDENTIALS', usernameVariable: 'DOCKERHUB_CREDENTIALS_USR', passwordVariable: 'DOCKERHUB_CREDENTIALS_PSW')]) {
                     // bat "echo %DOCKERHUB_CREDENTIALS_PSW% | docker login -u %DOCKERHUB_CREDENTIALS_USR% --password-stdin"
                     bat '''
                     @echo off
