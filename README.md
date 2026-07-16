@@ -27,10 +27,10 @@ and Kubernetes, since Docker Desktop bundles both.
 
 1. **Push this project to GitHub**
    ```bash
-   cd simple-node-cicd-demo
+   cd ibm-cicd-demo
    git init && git add . && git commit -m "initial commit"
    git branch -M main
-   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/simple-node-cicd-demo.git
+   git remote add origin https://github.com/YOUR_GITHUB_USERNAME/ibm-cicd-demo.git
    git push -u origin main
    ```
 
