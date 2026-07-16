@@ -18,7 +18,7 @@ pipeline {
     // }
 
     environment {
-        IMAGE_NAME = "vishal/ibm-cicd-demo"
+        IMAGE_NAME = "vishalsingh24/ibm-cicd-demo"
         IMAGE_TAG  = "${env.BUILD_NUMBER}"
     }
 
